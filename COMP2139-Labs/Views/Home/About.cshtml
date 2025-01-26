@@ -1,0 +1,21 @@
+@page
+@model COMP2139_Labs.Views.Home.About
+
+@{
+    ViewBag.Title = "About Page";
+    Layout = "_Layout";
+
+    var name = "Ebrahim Al-Serri";
+    var studentNumber = "101085527";
+    var courseCode = "COMP2139";
+    var courseSection = "54321";
+}
+
+<h2>About</h2>
+<div>
+    <h1>Welcome to my Application</h1>
+    <p>Name: @name</p>
+    <p>Student Number: @studentNumber</p>
+    <p>Course Code: @courseCode</p>
+    <p>Section: @courseSection</p>
+</div>
