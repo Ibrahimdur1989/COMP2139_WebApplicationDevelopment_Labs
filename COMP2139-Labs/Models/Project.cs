@@ -16,6 +16,7 @@ public class Project
     /// [Required]: A C# 11 feature that enforces initialization during object creation.
     /// </summary>
     [Required]
+    
     public required string Name { get; set; }
     
     /// <summary>
@@ -45,6 +46,7 @@ public class Project
     /// The current status of the project (e.g., "In Progress," "Completed").
     /// - Nullable: Allows this property to have a null value if the status is unknown.
     /// </summary>
+    
     
     public string? Status { get; set; }
     
