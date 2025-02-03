@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("COMP2139-Labs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c9a717c4612468512a723acd926cbae97501e7b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+589efa6492eceef8bebc86054a8af1ab3ac0417f")]
 [assembly: System.Reflection.AssemblyProductAttribute("COMP2139-Labs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("COMP2139-Labs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
