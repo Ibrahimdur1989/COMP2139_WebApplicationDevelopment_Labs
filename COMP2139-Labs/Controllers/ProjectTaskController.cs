@@ -9,24 +9,26 @@ public class ProjectTaskController : Controller
 {
     private readonly ApplicationDbContext _context;
 
-    public ProjectTaskController(ApplicationDbContext context)
+    public ProjectTaskController(ApplicationDbContext context) : base()
     {
         _context = context;
     }
 
 
+    // GET: Tasks
     [HttpGet]
     public IActionResult Index(int projectId)
     {
-        var tasks = _context
-            .Tasks
-            .Where(t => t.ProjectId == projectId);
+        var tasks = _context.Tasks
+            .Where(t => t.ProjectId == projectId)
+            .ToList();
         
         
-        ViewBag.ProjectId = projectId;
+        ViewBag.ProjectId = projectId;   // Store projectId in ViewBag
         return View(tasks);
     }
 
+    // GET: Task/Details/5
     [HttpGet]
     public IActionResult Details(int id)
     {
