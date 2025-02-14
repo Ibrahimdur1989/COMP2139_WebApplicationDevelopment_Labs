@@ -6,6 +6,9 @@
 @{
     ViewBag.Title = "List of Projects";
     Layout = "_Layout";
+
+    bool searchPerformed = ViewData["SearchPerformed"] as bool? ?? false;
+    string searchString = ViewData["SearchString"] as string;
 }
 
 
@@ -48,5 +51,9 @@
 }
 else
 {
+    if (searchPerformed)
+    {
+        <p>No project with search string "@searchString"</p>
+    }
     <p>No projects available</p>
 }

@@ -9,7 +9,7 @@ namespace COMP2139_Labs.Controllers;
 /// Controller for managing projects in the application.
 /// Provides CRUD operations (Create, Read, Update, Delete) for the Project entity.
 /// </summary>
-
+[Route("Project")]
 public class ProjectController : Controller
 {
     private readonly ApplicationDbContext _context;
@@ -185,6 +185,34 @@ public class ProjectController : Controller
             return RedirectToAction("Index");
         }
         return View(project);
+    }
+
+
+    [HttpGet("Search/{searchString?")]
+    public async Task<IActionResult> Search(string searchString)
+    {
+        //Fetch all projects from the database as Queryable, this allows us to execute filters
+        // before executing the database query.
+        var projectsQuery = _context.Projects.AsQueryable();
+        
+        bool searchPerformed = !string.IsNullOrEmpty(searchString);
+
+        if (searchPerformed)
+        {
+            searchString = searchString.ToLower();
+            
+            projectsQuery = projectsQuery
+                .Where(p => p.Name.ToLower().Contains(searchString) || 
+                            p.Description.ToLower().Contains(searchString));
+        }
+
+        var projects = await projectsQuery.ToListAsync();
+
+        ViewData["SearchPerformed"] = searchPerformed;
+        ViewData["SearchString"] = searchString;
+
+        return View("Index", projects);
+
     }
     
     

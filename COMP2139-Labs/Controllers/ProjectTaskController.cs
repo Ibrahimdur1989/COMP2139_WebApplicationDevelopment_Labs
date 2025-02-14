@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace COMP2139_Labs.Controllers;
 
+[Route("ProjectTask")]
 public class ProjectTaskController : Controller
 {
     private readonly ApplicationDbContext _context;
@@ -137,6 +138,41 @@ public class ProjectTaskController : Controller
 
         return NotFound();
     }
+    
+    [HttpGet("Search")]
+    public async Task<IActionResult> Search(int? projectId, string searchString)
+    {
+        //Fetch all projects from the database as Queryable, this allows us to execute filters
+        // before executing the database query.
+        var tasksQuery = _context.Tasks.AsQueryable();
+        
+        bool searchPerformed = !string.IsNullOrWhiteSpace(searchString);
+
+        if (projectId.HasValue)
+        {
+            tasksQuery = tasksQuery.Where(t => t.ProjectId == projectId);
+        }
+        if (searchPerformed)
+        {
+            searchString = searchString.ToLower();
+            
+            tasksQuery = tasksQuery
+                .Where(p => p.Title.ToLower().Contains(searchString) || 
+                            p.Description.ToLower().Contains(searchString));
+        }
+
+        // Asynchronous execution means this method does not block the thread while waiting for the database
+        
+        var tasks = await tasksQuery.ToListAsync();
+
+        ViewBag.ProjectId = projectId;
+        ViewData["SearchPerformed"] = searchPerformed;
+        ViewData["SearchString"] = searchString;
+
+        return View("Index", tasks);
+
+    }
+
     
         
 }

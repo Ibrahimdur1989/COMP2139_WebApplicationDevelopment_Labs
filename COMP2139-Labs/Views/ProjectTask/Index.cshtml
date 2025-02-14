@@ -7,7 +7,8 @@
 
 <h2>@ViewData["Title"]</h2>
 
-    <table class="table">
+@if(Model.Any()){
+<table class="table">
         <thead>
         <tr>
             <th>Task ID</th>
@@ -36,8 +37,21 @@
         }
 
         </tbody>
+</table>
+   } else
+    {
+    if (searchPerformed)
+    {
+    <p>No project with search string "@searchString"</p>
+    }
+    else
+    {
+        <p>No tasks available</p>
+    }
+    
+   
 
-    </table>
+
 
 <a asp-action="Create" asp-route-projectId="@ViewBag.ProjectId" class="btb btn-success">Create New Task</a>
 <a asp-controller="Project" asp-action="Index" class="btb btn-primary">Back to Projects</a>
