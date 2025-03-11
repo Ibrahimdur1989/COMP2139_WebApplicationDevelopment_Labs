@@ -34,33 +34,33 @@ build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmll
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/Project/Create.cshtml]
+[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/ProjectController1/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdENvbnRyb2xsZXIxXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/Project/Delete.cshtml]
+[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/ProjectController1/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdENvbnRyb2xsZXIxXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/Project/Details.cshtml]
+[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/ProjectController1/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdENvbnRyb2xsZXIxXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/Project/Edit.cshtml]
+[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/ProjectController1/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdENvbnRyb2xsZXIxXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/Project/Index.cshtml]
+[C:/Users/IAA19/comp2139/COMP2139/COMP2139-Labs/Areas/ProjectManagement/Views/ProjectController1/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdE1hbmFnZW1lbnRcVmlld3NcUHJvamVjdENvbnRyb2xsZXIxXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 

@@ -28,11 +28,11 @@
 
     <ItemGroup>
       <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectTask\Index.cshtml" />
-      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Create.cshtml" />
-      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Delete.cshtml" />
-      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Details.cshtml" />
-      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Edit.cshtml" />
-      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Index.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectController1\Create.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectController1\Delete.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectController1\Details.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectController1\Edit.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectController1\Index.cshtml" />
     </ItemGroup>
 
 </Project>

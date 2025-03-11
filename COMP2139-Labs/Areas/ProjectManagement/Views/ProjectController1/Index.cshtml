@@ -1,0 +1,66 @@
+@* indicates that the view expects a list of Project objects as its model *@
+@model List<Project>
+
+@* Razor Block *@
+
+@{
+    ViewBag.Title = "List of Projects";
+    Layout = "_Layout";
+
+    bool searchPerformed = ViewData["SearchPerformed"] as bool? ?? false;
+    string searchString = ViewData["SearchString"] as string;
+}
+
+
+<h2>Project Listing</h2>
+
+<a asp-action="Create" class="btn btn-primary">Create New Project</a>
+@if (Model.Any())  // to determine if there are any projects to display
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+            <!-- Any other project properties as needed -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- A foreach loop is used to iterate over each Project in the model and display its properties in the table rows -->
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.ProjectId</td>
+                <td>@project.Name</td>
+                <td>@project.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@project.ProjectId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@project.ProjectId" class="btn btn-danger">Delete</a>
+                    
+                    <!-- Link to view tasks for the project -->
+                    <a asp-controller="ProjectTask" asp-action="Index" asp-route-projectId="@project.ProjectId" class="btn btn-warning">View Task</a>
+                </td>
+                <!-- Render other project properties as needed -->
+            </tr>
+        }
+
+        </tbody>
+        
+    </table>    
+    
+}
+else
+{
+    if (searchPerformed)
+    {
+        <p>No project with string "@searchString" were found</p>
+    }
+    else
+    {
+        <p>No projects available</p>
+    }
+    
+}
