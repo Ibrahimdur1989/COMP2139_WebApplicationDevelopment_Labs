@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NJAvflj7ARw=",
+  "dgSpecHash": "9putKS5MtZA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\IAA19\\Desktop\\George Brown\\2025 Winter\\Web Application Devl COMP2139\\Labs\\COMP2139-Labs\\COMP2139-Labs.csproj",
+  "projectFilePath": "C:\\Users\\IAA19\\comp2139\\COMP2139\\COMP2139-Labs\\COMP2139-Labs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IAA19\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\IAA19\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
@@ -122,26 +122,5 @@
     "C:\\Users\\IAA19\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\IAA19\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Net.Http' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57",
-      "libraryId": "System.Net.Http",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Text.RegularExpressions' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cmhx-cq75-c4mj",
-      "libraryId": "System.Text.RegularExpressions",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "logs": []
 }
