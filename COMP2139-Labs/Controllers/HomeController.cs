@@ -48,7 +48,7 @@ public class HomeController : Controller
         if (searchType == "project")
         {
             // Redirect to Project search
-            return RedirectToAction("Search", "ProjectController1", new { searchString });
+            return RedirectToAction("Search", "Project", new { searchString });
         }    
         else if (searchType == "tasks")
         {
