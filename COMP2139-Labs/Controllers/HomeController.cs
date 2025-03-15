@@ -48,16 +48,16 @@ public class HomeController : Controller
         if (searchType == "project")
         {
             // Redirect to Project search
-            return RedirectToAction("Search", "Project", new { searchString });
+            return RedirectToAction("Search", "Project", new { area = "ProjectManagement", searchString });
         }    
         else if (searchType == "tasks")
         {
             // Redirect to ProjectTask search
-            return RedirectToAction("Search", "ProjectTask", new { searchString });
+            return RedirectToAction("Search", "ProjectTask", new { area = "ProjectManagement", searchString });
                 
         }
         
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction(nameof(Index), "Home");
         
     }
 }

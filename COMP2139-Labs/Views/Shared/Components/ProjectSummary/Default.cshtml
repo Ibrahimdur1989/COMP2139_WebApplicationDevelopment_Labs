@@ -1,0 +1,28 @@
+@model COMP2139_Labs.Areas.ProjectManagement.Models.Project
+
+<div class="project-summary">
+    
+    <p>@Html.DisplayFor(modle => modle.Name, "ProjectName")</p>
+    <p>@Html.DisplayFor(modle => modle.Description, "ProjectDescription")</p>
+
+    <p><b>Start Date: </b>@Html.DisplayFor(modle => modle.StartDate, "DateTime")</p>
+    <p><b>End Date: </b>@Html.DisplayFor(modle => modle.EndDate, "DateTime")</p>
+    <p><b>Status: </b>@Html.DisplayFor(modle => modle.Status, "ProjectName")</p>
+    
+    <p><b>Tasks</b></p>
+    <ul>
+        @foreach (var task in Model.Tasks)
+        {
+            <li>
+                <p>@Html.DisplayFor(modle => task.Title, "ProjectTitle")</p>
+                <p>@Html.DisplayFor(modle => task.Description, "ProjectDescription")</p>
+            </li>
+        }
+        
+        <li></li>
+        
+    </ul>
+    
+    
+    
+</div>

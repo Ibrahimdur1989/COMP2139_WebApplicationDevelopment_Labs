@@ -11,7 +11,7 @@ namespace COMP2139_Labs.Areas.ProjectManagement.Controllers;
 /// Provides CRUD operations (Create, Read, Update, Delete) for the Project entity.
 /// </summary>
 [Area("ProjectManagement")]
-[Route("Project")]
+[Route("[area]/[controller]/[action]")]
 public class ProjectController : Controller
 {
     private readonly ApplicationDbContext _context;
@@ -31,10 +31,10 @@ public class ProjectController : Controller
     /// <returns>The Index view with a list of projects.</returns>
 
     [HttpGet("")]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
         //Databased --> Retrieve a list of projects from database 
-        var projects = _context.Projects.ToList();
+        var projects = await _context.Projects.ToListAsync();
         return View(projects);
     }
     
@@ -55,13 +55,13 @@ public class ProjectController : Controller
     /// <returns>Redirects to Index if successful; otherwise, redisplays the form.</returns>
     [HttpPost("Create")]
     [ValidateAntiForgeryToken]  // need to have it in every post request even in the Assignments  
-    public IActionResult Create(Project project)
+    public async Task<IActionResult> Create(Project project)
     {
         // [ValidateAntiForgeryToken] helps prevent Cross-Site Request Forgery (CSRF) attacks 
         if (ModelState.IsValid) // Ensures the data is valid based on model annotations.
         {
             _context.Projects.Add(project);   // Adds the new project to the database. 
-            _context.SaveChanges();           // Save the changes to the database
+            await _context.SaveChangesAsync();           // Save the changes to the database
             return RedirectToAction("Index"); // Redirects to the Index action
         }
         return View(project);   // Redisplays the form with validation errors.
@@ -75,10 +75,10 @@ public class ProjectController : Controller
     /// <param name="id">The ID of the project to view</param>
     /// <returns>The Details view if the project exists; otherwise, NotFound.</returns>
     [HttpGet("Details/{id:int}")]
-    public IActionResult Details(int id)
+    public async Task<IActionResult> Details(int id)
     {
         // Retrieve the project with the specified ID or returns null if not found 
-        var project = _context.Projects.FirstOrDefault(p => p.ProjectId == id);
+        var project = await _context.Projects.FirstOrDefaultAsync(p => p.ProjectId == id);
         if (project == null)
         {
             return NotFound();     // Returns a 404 error if the project doesn't exist.
@@ -92,10 +92,10 @@ public class ProjectController : Controller
     /// <param name="id">The ID of the project to edit</param>
     /// <returns>The edit view if the project exists; otherwise, NotFound</returns>
     [HttpGet("Edit/{id:int}")]
-    public IActionResult Edit(int id)
+    public async Task<IActionResult> Edit(int id)
     {
         // Finds the project by its primary key. 
-        var project = _context.Projects.Find(id);
+        var project = await _context.Projects.FindAsync(id);
         if (project == null)
         {
             return NotFound();     // Returns a 404 error if the project doesn't exist.
@@ -112,7 +112,7 @@ public class ProjectController : Controller
     /// <returns>Redirects to Index if successful; otherwise, redisplays the form.</returns>
     [HttpPost("Edit/{id:int}")]
     [ValidateAntiForgeryToken]  
-    public IActionResult Edit(int id, [Bind("ProjectId, Name, Description")] Project project)
+    public async Task<IActionResult> Edit(int id, [Bind("ProjectId, Name, Description")] Project project)
     {
         // [Bind] ensures only the specified properties are updated for security reasons.
         if (id != project.ProjectId)
@@ -125,12 +125,12 @@ public class ProjectController : Controller
             try
             {
                 _context.Projects.Update(project);    // Update the project in the database.
-                _context.SaveChanges();      // Saves the changes to the database
+                await _context.SaveChangesAsync();      // Saves the changes to the database
             }
             catch (DbUpdateConcurrencyException)
             {
                 // Handles concurrency issues where another process (or user) modifies the project simultaneously
-                if (!ProjectExists(project.ProjectId))
+                if (!await ProjectExists(project.ProjectId))
                 {
                   return NotFound();  // Returns a 404 error if the project no longer exists.
                 }
@@ -151,9 +151,9 @@ public class ProjectController : Controller
     /// </summary>
     /// <param name="id">The ID of the project to check.</param>
     /// <returns>True if the project exists; otherwise, false.</returns>
-    private bool ProjectExists(int id)
+    private async Task<bool> ProjectExists(int id)
     {
-        return _context.Projects.Any(e => e.ProjectId == id);
+        return await _context.Projects.AnyAsync(e => e.ProjectId == id);
     }
 
     /// <summary>
@@ -162,10 +162,10 @@ public class ProjectController : Controller
     /// <param name="id">The ID of the project to delete.</param>
     /// <returns>The Delete view if the project exists; otherwise, NotFound</returns>
     [HttpGet("Delete/{id:int}")]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
         
-        var project = _context.Projects.FirstOrDefault(p => p.ProjectId == id);
+        var project = await _context.Projects.FirstOrDefaultAsync(p => p.ProjectId == id);
         if (project == null)
         {
             return NotFound();     // 404 not found error
@@ -176,14 +176,14 @@ public class ProjectController : Controller
     [HttpPost("Delete/{ProjectId:int}"), ActionName("Delete")]
     [ValidateAntiForgeryToken]
     
-    public IActionResult DeleteConfirmed(int ProjectId)
+    public async Task<IActionResult> DeleteConfirmed(int ProjectId)
     {
         // Retrieve the project with the specified ID or returns null if not found 
-        var project = _context.Projects.Find(ProjectId);
+        var project = await _context.Projects.FindAsync(ProjectId);
         if (project != null)
         {
             _context.Projects.Remove(project); // Remove project from database 
-            _context.SaveChanges();            // Commit changes to database 
+            await _context.SaveChangesAsync();            // Commit changes to database 
             return RedirectToAction("Index");
         }
         return NotFound();
